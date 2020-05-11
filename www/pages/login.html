@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: ws: 'unsafe-inline' https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" href="../lib/OnsenUI-dist-2.10.10/css/onsenui.css">
+        <link rel="stylesheet" href="../lib/OnsenUI-dist-2.10.10/css/onsen-css-components.min.css">
+        <!-- <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+        <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+         -->
+        <link rel="stylesheet" type="text/css" href="../css/index.css">
+        
+        <title>SweepApp(Sweeper)</title>
+    </head>
+    <body>
+        <div class="app">
+            <div id="loading-gif">
+                <img src="../img/icons/spinner.gif" alt="wait..">
+            </div>
+            <div class="login-main">
+                <ons-page>
+                    <ons-toolbar>
+                        <div class="center">SweepApp(Sweeper)</div>
+                    </ons-toolbar>
+                    <div style="text-align: center; margin-top: 20%;">
+                        <div class="registration-info">
+                            <div class="registration-logo">
+                                <img src="../img/icons/sweeper-login-logo.png" width="75" height="75" alt="user icon">
+                            </div>
+                            <div class="center">Login Here !!</div>
+                        </div>
+                        <div class="message">
+                        </div>
+                        <p>
+                            <ons-input id="loginadhaar" style="width:90%;" modifier="underbar" placeholder="Please Enter Your Adhaar No..." float></ons-input>
+                        </p>
+                        <p>
+                            <ons-input id="loginkey" style="width:90%;" modifier="underbar" placeholder="Please Enter Your Key..." float></ons-input>
+                        </p>
+                        <div class="my-buttons">
+                            <p style="margin-top: 30px;">
+                                <ons-button onclick="login()">Login</ons-button>
+                            </p>
+                        </div>
+                    </div>
+                    <ons-bottom-toolbar>
+                            <div class="copyright-info">copyright &copy; SweepApp 2020(Sweeper)</div>
+                    </ons-bottom-toolbar>
+                </ons-page>
+            </div>
+        </div>
+        <script type="text/javascript" src="../cordova.js"></script>
+        <script src="../lib/OnsenUI-dist-2.10.10/js/onsenui.min.js"></script>
+        <!-- <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script> -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="../js/functions.js"></script>
+        <script type="text/javascript" src="../js/index.js"></script>
+    </body>
+</html>

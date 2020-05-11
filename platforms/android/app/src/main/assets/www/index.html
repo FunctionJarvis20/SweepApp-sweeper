@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: ws: 'unsafe-inline' https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" href="lib/OnsenUI-dist-2.10.10/css/onsenui.css">
+        <link rel="stylesheet" href="lib/OnsenUI-dist-2.10.10/css/onsen-css-components.min.css">
+        <!-- <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+        <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+         -->
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <script>
+        if(window.localStorage.getItem("login") == "1"){
+            window.location.href = "pages/main.html";
+        }
+        </script>
+        <title>SweepApp</title>
+    </head>
+    <body>
+        <div class="app">
+            <ons-page>
+                <div class="my-buttons">
+                    <p style="margin-top: 30px;">
+                        <ons-button onclick="gotoLogin('pages/login.html')">Login Here!!</ons-button>
+                    </p>
+                </div>
+            </ons-page>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script src="lib/OnsenUI-dist-2.10.10/js/onsenui.min.js"></script>
+        <!-- <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script> -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>

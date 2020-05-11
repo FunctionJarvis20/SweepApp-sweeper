@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="theme-color" content="#2196f3">
+    <title>My App</title>
+    <!-- Path to Framework7 Library Bundle CSS -->
+    <link rel="stylesheet" href="../lib/framework7/css/framework7.bundle.min.css">
+    <!-- mapbox links -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/index.css">
+  </head>
+  <body>
+    <!-- App root element -->
+    <div id="mainapp">
+        <!-- notification menu -->
+        <div id="notification-context-menu">
+            <div id="notification-transperent-body">.</div>
+            <div id="main-notification-content">
+              <!-- take a look at set notification function -->
+            </div>
+        </div>
+        <div id="loading-main-page-gif">
+          <p>Hang On...</p>
+          <img src="../img/icons/spinner.gif" alt="">
+        </div>
+        <div id="loading-gif">
+          <img src="../img/icons/spinner.gif" alt="wait..">
+        </div>
+        <div class="page">
+            <div class="navbar">
+              <div class="navbar-bg"></div>
+              <div class="navbar-inner sliding" style="display: flex;justify-content: space-between;">
+                <div class="title" id="s-navbar-title"></div>
+                <div class="notification-center" style="margin-right: 15px;">
+                  <span class="badge color-green">5</span>
+                  <img src="../img/icons/notification.png" width="28px" height="28px" id="notification-menu-btn" alt="Notification">
+                </div>
+              </div>
+            </div>
+            <!-- Additional "tabbar" class -->
+            <div class="toolbar tabbar toolbar-top">
+              <div class="toolbar-inner">
+                <a onclick="navbarNameChanger('Incoming Complaints')" href="#incoming-complaints-tab" class="tab-link tab-link-active">
+                  <img src="../img/icons/incoming.png" alt="">
+                </a>
+                <a onclick="navbarNameChanger('Pending Complaint')" href="#pending-complaint-tab" class="tab-link">
+                  <img src="../img/icons/pending.png" alt="">
+                </a>
+                <a onclick="navbarNameChanger('Finished Complaints')" href="#finished-complaints-tab" class="tab-link">
+                  <img src="../img/icons/finished.png" alt="">
+                </a>
+                <a onclick="navbarNameChanger('Stats')" href="#stats-tab" class="tab-link">
+                  <img src="../img/icons/stats.png" alt="">
+                </a>
+                <a onclick="navbarNameChanger('About')" href="#about-tab" class="tab-link">
+                  <img src="../img/icons/about.png" alt="">
+                </a>
+              </div>
+            </div>
+            <!-- Tabs -->
+            <div class="tabs">
+              <!-- incoming complaints tab, active -->
+              <div class="page-content tab tab-active" id="incoming-complaints-tab">
+                <div class="block">
+                    <div id="incoming-complaints-content">
+                      <!-- take a llok at setIncomingComplaints() function -->
+                    </div>
+                </div>
+              </div>
+              <!-- pending complaint tab -->
+              <div class="page-content tab" id="pending-complaint-tab">
+                <div class="block">
+                  <div id="pending-complaint-content">
+                    <!-- take a look at setPendingComplaint() function -->
+                  </div>
+                </div>
+              </div>
+              <!-- finished complaints tab -->
+              <div class="page-content tab" id="finished-complaints-tab">
+                <div class="block">
+                    <div id="finished-complaints-content">
+                      <!-- take a look at setFinishedComplaints() function -->
+                    </div>
+                </div>
+              </div>
+              <!-- stats  tab -->
+              <div class="page-content tab" id="stats-tab">
+                <div class="block">
+                    <div id="stats-content">
+
+                    </div>
+                </div>
+              </div>
+              <!-- about tab -->
+              <div class="page-content tab" id="about-tab">
+                <div class="block">
+                    <div id="about-content">
+                      
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <!-- popup for showing more info of incoming complaint from incoming complaints section -->
+    <div id="single-incoming-complaint-popups">
+      <!-- take alook at addIncomingComplaintPopups() function -->
+    </div>
+
+    <!-- popup for showing more info of finished complaints from finished complaints section -->
+    <div id="single-finished-complaint-popups">
+      <!-- take alook at addFinishedComplaintPopups() function -->
+    </div>
+    <input type="hidden" name="place-imageholder" id="place-imageholder" value="">
+    <script type="text/javascript" src="../cordova.js"></script>
+    <script type="text/javascript" src="../lib/framework7/js/framework7.bundle.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- main js file -->
+    <script type="text/javascript" src="../js/functions.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        window.setTimeout(function() {
+          document.getElementById('loading-main-page-gif').style.display='none';
+        }, 2000)
+    </script>
+  </body>
+</html>
