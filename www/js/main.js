@@ -96,6 +96,9 @@ var app = new Framework7({
                 window.localStorage.setItem('admininfo',JSON.stringify(admin_info));                
             });
 
+            // call an method to get notification initially
+            getNotifications(window.localStorage.getItem('uuid'));
+
         },
         pageInit: function(){
             
@@ -168,7 +171,7 @@ window.setInterval(function(){
 window.setInterval(function(){
     // call an method 
     getNotifications(window.localStorage.getItem('uuid'));
-},20000);
+},3000);
 // this is to get the confirmation to close the app
 document.addEventListener("backbutton", function(e){
     navigator.notification.confirm("Are you sure you want to exit the application?",exitSweeperApp,"Warning!!","Ok,Cancel"); // u can change the button names in the place of ok,cancel.
@@ -190,7 +193,9 @@ $(document).ready(function(){
         console.log(notification_btn_id)     
         if(notification_btn_id == "notification-menu-btn"){
             $('#notification-context-menu').toggle('slide');
-            $('#notification-context-menu').css("display","flex");                                
+            $('#notification-context-menu').css("display","flex");
+            // then call api to read all the notifications
+            markReadNotifications(window.localStorage.getItem('uuid'));
         }else if(notification_btn_id == "notification-context-menu" || notification_btn_id == "notification-transperent-body"){
             // do nothing
         }else{

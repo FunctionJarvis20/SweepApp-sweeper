@@ -500,10 +500,12 @@ function getNotifications(sweeper_uuid){
         // set notification based on if available
         if(data.status == 404){
             // set error in notification block
-            setNotificationError(data.message);
+            setNotificationError('No new notification');
         }else{
             // set all notifications
-            setNotification(data.data,data.count);
+            setNotification(data,data.total_count);
+            // setNotificationError('No new notification');
+            
         }
     });
 }
@@ -511,25 +513,73 @@ function getNotifications(sweeper_uuid){
 // function to set notifications
 function setNotification(data,count){
     set_notification_in_div  = '';
+    // get unread count and set it on label
+    unread_count = data.unread_count;
     // loop over notification
     for (let index = 0; index < count; index++) {
-        set_notification_in_div += `
-            <div class="notification-item" id="notification-ccontent-id-1">               
+        
+        // check if status is 0 then add new label to notification
+        if(data.data[index].status == 0 && unread_count == 1){
+            set_notification_in_div = set_notification_in_div + `
+            <div class="notification-item" id="notification-ccontent-id-${data.data[index].notification_id}">               
                 <span class="notification-timestamp">
-                <b style="color: gray;">May 6 2020 16:28:30 PM &nbsp;&nbsp;<span class="badge color-red">New</span></b>
+                <b style="color: gray;">${data.data[index].timestamp} &nbsp;&nbsp;<span class="badge color-red">New</span></b>
                 </span>
                 <div class="notification-body">
-                <h5>You have new incoming complaint!!</h5>
+                <h5>${data.data[index].message}</h5>
                 </div>
             </div>
         `;
+        }else if(data.data[index].status == 0){
+            set_notification_in_div = set_notification_in_div + `
+            <div class="notification-item" id="notification-ccontent-id-${data.data[index].notification_id}" style="margin-bottom: 10px;">               
+                <span class="notification-timestamp">
+                <b style="color: gray;">${data.data[index].timestamp} &nbsp;&nbsp;<span class="badge color-red">New</span></b>
+                </span>
+                <div class="notification-body">
+                <h5>${data.data[index].message}</h5>
+                </div>
+            </div>
+        `;
+        }
+    }
+    // check if string is null or not
+    if(set_notification_in_div == ''){
+        setNotificationError('No new notification');
+    }else{
+        // set unread count on label
+        document.getElementById('notification-unread-count').innerHTML = unread_count;
+        // set notifications in div
+        document.getElementById('main-notification-content').innerHTML = set_notification_in_div;
     }
 
 }
 
 // function is to set notification error
 function setNotificationError(message){
+    set_notification_error = `
+        <div id="notification-error" style="padding:20px;text-align:center;background:white;">
+            <span>${message}</span>
+        </div>
+    `
 
+    // remove notification badge
+    document.getElementById('notification-unread-count').style.display = 'none';
+    // set notification error in div
+    document.getElementById('main-notification-content').innerHTML = set_notification_error;
+
+
+}
+
+// this function is to mark read notification
+function markReadNotifications(sweeper_uuid){
+    // call an api to get all notifications
+    $.post('https://sweepadmin.000webhostapp.com/sweeper-admin/api/notification/mark-read.php',{
+        notificant: 'sweeper',
+        sweeper_id: sweeper_uuid
+    },function(data){
+        console.log(data)
+    });
 }
 
 // this function is to get the alert

@@ -138,13 +138,12 @@
     border-radius: 5%;
     display: none;
     flex-direction: column;
-    padding: 15px;
+    padding: 10px;
 }
 #notification-context-menu>#main-notification-content>.notification-item{
     background: white;
     padding: 10px;
     border-radius: 10px;
-    margin-bottom: 10px;
 }
 #notification-context-menu>#main-notification-content>.notification-item>.notification-body>h5{
     display: flex;
