@@ -8,7 +8,7 @@ var app = {
 
     onDeviceReady: function() {   
         // store main api ur in localstorage
-        window.localStorage.setItem('API_URL','http://sweeperapi.kshitijskincare.com');
+        window.localStorage.setItem('API_URL','https://kshitijskincare.com/sweeperapi');
         // get uuid and store it in localstorage
         window.localStorage.setItem("uuid",device.uuid);
         // get lat long and store it in localstorage
